@@ -28,7 +28,6 @@ function MoviesPage() {
 
   return (
     <div className={css.container}>
-      <h1>Search Movies</h1>
       <form onSubmit={handleSearch} className={css.form}>
         <input
           type="text"
