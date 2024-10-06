@@ -12,6 +12,7 @@
   flex-grow: 1;
   padding: 0.5rem;
   font-size: 1rem;
+  margin-right: 2px;
 }
 
 .input:focus {
@@ -27,6 +28,7 @@
   font-size: 1rem;
   background-color: #cacaca;
   border: 1px solid #595959;
+  border-radius: 4px;
   color: #000000;
   cursor: pointer;
 }
@@ -34,5 +36,5 @@
 .button:hover {
   background-color: #007bff;
   color: white;
-  border: none;
+  border-color: #007bff;
 }

@@ -1,7 +1,18 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, Outlet, useLocation } from "react-router-dom";
+import {
+  useParams,
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
 import { movieDetails } from "../../api/movies-api";
 import css from "./MovieDetailsPage.module.css";
+import clsx from "clsx";
+
+const generateActiveClass = ({ isActive }) => {
+  return clsx(css.link, isActive && css.isActive);
+};
 
 function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -24,7 +35,7 @@ function MovieDetailsPage() {
     fetchMovieDetails();
   }, [movieId]);
 
-  if (!movie) return <div>Loading...</div>;
+  if (!movie) return <div className={css.loading}>Loading...</div>;
 
   return (
     <div className={css.container}>
@@ -49,10 +60,12 @@ function MovieDetailsPage() {
         </div>
         <div className={css.containerInfo}>
           <h1>
-            {movie.title}{" "}
-            {"(" + new Date(movie.release_date).getFullYear() + ")"}
+            {movie.title}
+            {movie.release_date
+              ? ` (${new Date(movie.release_date).getFullYear()})`
+              : ""}
           </h1>
-          <p>User Score: {movie.vote_average * 10}%</p>
+          <p>User Score: {(movie.vote_average * 10).toFixed(2)}%</p>
           <h2>Overview</h2>
           <p>{movie.overview}</p>
           <h3>Genres</h3>
@@ -65,28 +78,30 @@ function MovieDetailsPage() {
       </div>
       <div className={css.additionalInfo}>
         <h4>Additional information</h4>
-        <Link
-          to="cast"
-          state={{
-            from: backLinkHref,
-            movies: previousMovies,
-            query: previousQuery,
-          }}
-          className={css.link}
-        >
-          Cast
-        </Link>
-        <Link
-          to="reviews"
-          state={{
-            from: backLinkHref,
-            movies: previousMovies,
-            query: previousQuery,
-          }}
-          className={css.link}
-        >
-          Reviews
-        </Link>
+        <div className={css.additionalInfoLinks}>
+          <NavLink
+            to="cast"
+            state={{
+              from: backLinkHref,
+              movies: previousMovies,
+              query: previousQuery,
+            }}
+            className={generateActiveClass}
+          >
+            Cast
+          </NavLink>
+          <NavLink
+            to="reviews"
+            state={{
+              from: backLinkHref,
+              movies: previousMovies,
+              query: previousQuery,
+            }}
+            className={generateActiveClass}
+          >
+            Reviews
+          </NavLink>
+        </div>
       </div>
       <Outlet />
     </div>

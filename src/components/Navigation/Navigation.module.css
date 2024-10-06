@@ -22,7 +22,7 @@
 .link:hover {
   text-decoration: underline;
   text-decoration-color: #c0255b;
-  text-decoration-thickness: 2px; /* This makes the underline thicker */
+  text-decoration-thickness: 3px; /* This makes the underline thicker */
 }
 
 .isActive {

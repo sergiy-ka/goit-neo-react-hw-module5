@@ -33,16 +33,29 @@
 }
 
 .additionalInfo {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   border-bottom: 1px solid #dee2e6;
   border-top: 1px solid #dee2e6;
-  padding: 1rem 0;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .link {
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
   text-decoration: none;
   color: #007bff;
+}
+
+.isActive {
+  color: #004a9a;
+  font-weight: bold;
+}
+
+.link:hover {
+  text-decoration: underline;
+  text-decoration-color: #004a9a;
+  text-decoration-thickness: 2px; /* This makes the underline thicker */
 }
 
 .containerMovie {
@@ -63,4 +76,15 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+
+.loading {
+  display: flex;
+  padding: 16px;
+}
+
+.additionalInfoLinks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
 }

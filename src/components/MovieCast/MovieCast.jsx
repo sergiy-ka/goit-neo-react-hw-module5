@@ -22,7 +22,6 @@ function MovieCast() {
 
   return (
     <div className={css.container}>
-      <h2>Cast</h2>
       <ul className={css.castList}>
         {cast.map((actor) => (
           <li key={actor.id} className={css.castItem}>

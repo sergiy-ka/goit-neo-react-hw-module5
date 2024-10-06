@@ -22,7 +22,6 @@ function MovieReviews() {
 
   return (
     <div className={css.container}>
-      <h2>Reviews</h2>
       {reviews.length > 0 ? (
         <ul className={css.reviewList}>
           {reviews.map((review) => (
