@@ -18,7 +18,7 @@ const MoviesPage = () => {
         duration: 2500,
         position: "top-center",
         style: {
-          background: "#ffcccb", // Change background color
+          background: "#ffcccb",
         },
       });
       setQuery("");
