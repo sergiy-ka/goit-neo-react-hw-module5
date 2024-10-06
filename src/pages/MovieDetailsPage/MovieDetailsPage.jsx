@@ -28,18 +28,44 @@ function MovieDetailsPage() {
       <Link to={location.state?.from || "/movies"} className={styles.backLink}>
         Go back
       </Link>
-      <h1>{movie.title}</h1>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.title}
-        className={styles.poster}
-      />
-      <p>{movie.overview}</p>
+      <div className={styles.containerMovie}>
+        <div className={styles.containerImg}>
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.title}
+            className={styles.poster}
+          />
+        </div>
+        <div className={styles.containerInfo}>
+          <h1>
+            {movie.title}{" "}
+            {"(" + new Date(movie.release_date).getFullYear() + ")"}
+          </h1>
+          <p>User Score: {movie.vote_average * 10}%</p>
+          <h2>Overview</h2>
+          <p>{movie.overview}</p>
+          <h3>Genres</h3>
+          <ul>
+            {movie.genres.map((genre) => (
+              <li key={genre.id}>{genre.name}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
       <div className={styles.additionalInfo}>
-        <Link to="cast" className={styles.link}>
+        <h4>Additional information</h4>
+        <Link
+          to="cast"
+          state={{ from: location.state?.from || "/movies" }}
+          className={styles.link}
+        >
           Cast
         </Link>
-        <Link to="reviews" className={styles.link}>
+        <Link
+          to="reviews"
+          state={{ from: location.state?.from || "/movies" }}
+          className={styles.link}
+        >
           Reviews
         </Link>
       </div>

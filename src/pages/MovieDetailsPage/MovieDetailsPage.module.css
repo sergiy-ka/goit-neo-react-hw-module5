@@ -1,5 +1,7 @@
 .container {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .backLink {
@@ -16,10 +18,32 @@
 
 .additionalInfo {
   margin-top: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
 }
 
 .link {
   margin-right: 1rem;
   text-decoration: none;
   color: #007bff;
+}
+
+.containerMovie {
+  display: flex;
+  flex-direction: row;
+}
+
+.containerImg {
+  display: flex;
+}
+
+.containerInfo {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.containerInfo ul {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }

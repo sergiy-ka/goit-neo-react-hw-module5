@@ -4,13 +4,13 @@ import MovieList from "../../components/MovieList/MovieList";
 import styles from "./HomePage.module.css";
 
 function HomePage() {
-  const [trendingMovies, setTrendingMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const fetchTrendingMovies = async () => {
       try {
         const data = await trendingMovie();
-        setTrendingMovies(data.results);
+        setMovies(data.results);
       } catch (error) {
         console.error("Error fetching trending movies:", error);
       }
@@ -22,7 +22,7 @@ function HomePage() {
   return (
     <div className={styles.container}>
       <h1>Trending Movies</h1>
-      <MovieList movies={trendingMovies} />
+      <MovieList movies={movies} />
     </div>
   );
 }
