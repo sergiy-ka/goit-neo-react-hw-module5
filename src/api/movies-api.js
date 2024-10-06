@@ -5,12 +5,12 @@ axios.defaults.headers.common[
   "Authorization"
 ] = `Bearer ${"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYjgxZTY2ZWRhYzllZmUyMWNjOTc0MGFhYzUxMzYxMSIsIm5iZiI6MTcyODExOTUxOC42ODM2MTIsInN1YiI6IjY3MDBmYTE3ZTQ4MDE0OTE0Njg1NTVjZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zbgxWR0iwNjy9HEOHUi7HekrbKiKv8rOzNJneaYqFCE"}`;
 
-export const trendingMovie = async () => {
+export const trendingMovies = async () => {
   const { data } = await axios.get(`/3/trending/movie/day`);
   return data;
 };
 
-export const searchMovie = async (query) => {
+export const searchMovies = async (query) => {
   const { data } = await axios.get(`/3/search/movie?query=${query}`);
   return data;
 };

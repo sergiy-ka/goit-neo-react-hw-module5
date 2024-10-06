@@ -1,17 +1,17 @@
 import { useState } from "react";
-import { searchMovie } from "../../api/movies-api";
+import { searchMovies } from "../../api/movies-api";
 import MovieList from "../../components/MovieList/MovieList";
 import styles from "./MoviesPage.module.css";
 
 function MoviesPage() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [query, setQuery] = useState("");
+  const [movies, setMovies] = useState([]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      const data = await searchMovie(searchQuery);
-      setSearchResults(data.results);
+      const data = await searchMovies(query);
+      setMovies(data.results);
     } catch (error) {
       console.error("Error searching movies:", error);
     }
@@ -23,8 +23,8 @@ function MoviesPage() {
       <form onSubmit={handleSearch} className={styles.form}>
         <input
           type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
           className={styles.input}
           placeholder="Enter movie title"
         />
@@ -32,7 +32,7 @@ function MoviesPage() {
           Search
         </button>
       </form>
-      <MovieList movies={searchResults} />
+      <MovieList movies={movies} />
     </div>
   );
 }
