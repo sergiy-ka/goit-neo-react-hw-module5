@@ -1,0 +1,25 @@
+.container {
+  padding: 1rem;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.poster {
+  max-width: 300px;
+  margin-bottom: 1rem;
+}
+
+.additionalInfo {
+  margin-top: 1rem;
+}
+
+.link {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #007bff;
+}

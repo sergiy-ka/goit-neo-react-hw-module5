@@ -1,0 +1,21 @@
+.container {
+  margin-top: 1rem;
+}
+
+.castList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  list-style-type: none;
+  padding: 0;
+}
+
+.castItem {
+  text-align: center;
+}
+
+.actorImage {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
