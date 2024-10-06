@@ -5,10 +5,26 @@
 }
 
 .backLink {
-  display: inline-block;
-  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 4px;
+  margin-bottom: 6px;
   text-decoration: none;
-  color: #007bff;
+  color: #767676;
+  border: 1px solid #d2d2d2;
+  border-radius: 4px;
+  /* background-color: #ffffff; */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  /* width: auto; */
+  align-self: flex-start;
+  font-size: 14px;
+}
+
+.backLink:hover {
+  background-color: #007bff;
+  color: #ffffff;
 }
 
 .poster {
@@ -20,6 +36,7 @@
   margin-top: 1rem;
   border-bottom: 1px solid #dee2e6;
   border-top: 1px solid #dee2e6;
+  padding: 1rem 0;
 }
 
 .link {

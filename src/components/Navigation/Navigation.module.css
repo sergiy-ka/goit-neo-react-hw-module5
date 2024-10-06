@@ -1,7 +1,7 @@
 .nav {
   display: flex;
   gap: 24px;
-  padding: 1rem;
+  padding: 1rem 2rem;
   background-color: #f0f0f0;
 }
 
@@ -11,10 +11,12 @@
   font-weight: bold;
 }
 
-/* .link:hover {
-  color: #007bff;
-} */
+.link:hover {
+  text-decoration: underline;
+  text-decoration-color: #c0255b;
+  text-decoration-thickness: 2px; /* This makes the underline thicker */
+}
 
 .isActive {
-  color: #007bff;
+  color: #c0255b;
 }

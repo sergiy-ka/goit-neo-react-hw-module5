@@ -1,15 +1,17 @@
 .list {
-  list-style-type: none;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  list-style-type: disc;
+  padding: 12px 24px;
 }
 
-.item {
-  margin-bottom: 0.5rem;
-}
+/* .item {
+
+} */
 
 .link {
-  text-decoration: none;
-  color: #333;
+  text-decoration: underline;
+  color: blue;
 }
 
 .link:hover {

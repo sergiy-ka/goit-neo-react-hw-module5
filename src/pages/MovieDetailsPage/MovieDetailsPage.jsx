@@ -33,7 +33,7 @@ function MovieDetailsPage() {
         state={{ movies: previousMovies, query: previousQuery }}
         className={css.backLink}
       >
-        Go back
+        &#11104; Go back
       </Link>
       <div className={css.containerMovie}>
         <div className={css.containerImg}>
