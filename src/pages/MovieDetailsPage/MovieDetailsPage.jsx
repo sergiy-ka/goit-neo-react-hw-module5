@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { movieDetails } from "../../api/movies-api";
-import styles from "./MovieDetailsPage.module.css";
+import css from "./MovieDetailsPage.module.css";
 
 function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -27,16 +27,16 @@ function MovieDetailsPage() {
   if (!movie) return <div>Loading...</div>;
 
   return (
-    <div className={styles.container}>
+    <div className={css.container}>
       <Link
         to={backLinkHref}
         state={{ movies: previousMovies, query: previousQuery }}
-        className={styles.backLink}
+        className={css.backLink}
       >
         Go back
       </Link>
-      <div className={styles.containerMovie}>
-        <div className={styles.containerImg}>
+      <div className={css.containerMovie}>
+        <div className={css.containerImg}>
           <img
             src={
               movie.poster_path
@@ -44,10 +44,10 @@ function MovieDetailsPage() {
                 : "https://via.placeholder.com/500x750?text=No+Image"
             }
             alt={movie.title}
-            className={styles.poster}
+            className={css.poster}
           />
         </div>
-        <div className={styles.containerInfo}>
+        <div className={css.containerInfo}>
           <h1>
             {movie.title}{" "}
             {"(" + new Date(movie.release_date).getFullYear() + ")"}
@@ -63,7 +63,7 @@ function MovieDetailsPage() {
           </ul>
         </div>
       </div>
-      <div className={styles.additionalInfo}>
+      <div className={css.additionalInfo}>
         <h4>Additional information</h4>
         <Link
           to="cast"
@@ -72,7 +72,7 @@ function MovieDetailsPage() {
             movies: previousMovies,
             query: previousQuery,
           }}
-          className={styles.link}
+          className={css.link}
         >
           Cast
         </Link>
@@ -83,7 +83,7 @@ function MovieDetailsPage() {
             movies: previousMovies,
             query: previousQuery,
           }}
-          className={styles.link}
+          className={css.link}
         >
           Reviews
         </Link>

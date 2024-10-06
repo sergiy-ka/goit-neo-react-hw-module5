@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import styles from "./MovieList.module.css";
+import css from "./MovieList.module.css";
 
 function MovieList({ movies, query }) {
   const currentPath = window.location.pathname;
 
   return (
-    <ul className={styles.list}>
+    <ul className={css.list}>
       {movies.map((movie) => (
-        <li key={movie.id} className={styles.item}>
+        <li key={movie.id} className={css.item}>
           <Link
             to={`/movies/${movie.id}`}
             state={{
@@ -15,7 +15,7 @@ function MovieList({ movies, query }) {
               movies,
               query,
             }}
-            className={styles.link}
+            className={css.link}
           >
             {movie.title}
           </Link>

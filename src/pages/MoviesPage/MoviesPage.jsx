@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { searchMovies } from "../../api/movies-api";
 import MovieList from "../../components/MovieList/MovieList";
-import styles from "./MoviesPage.module.css";
+import css from "./MoviesPage.module.css";
 
 function MoviesPage() {
   const location = useLocation();
@@ -27,17 +27,17 @@ function MoviesPage() {
   }, [location.state?.movies]);
 
   return (
-    <div className={styles.container}>
+    <div className={css.container}>
       <h1>Search Movies</h1>
-      <form onSubmit={handleSearch} className={styles.form}>
+      <form onSubmit={handleSearch} className={css.form}>
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className={styles.input}
+          className={css.input}
           placeholder="Enter movie title"
         />
-        <button type="submit" className={styles.button}>
+        <button type="submit" className={css.button}>
           Search
         </button>
       </form>

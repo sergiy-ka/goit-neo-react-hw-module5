@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { movieCredits } from "../../api/movies-api";
-import styles from "./MovieCast.module.css";
+import css from "./MovieCast.module.css";
 
 function MovieCast() {
   const { movieId } = useParams();
@@ -21,11 +21,11 @@ function MovieCast() {
   }, [movieId]);
 
   return (
-    <div className={styles.container}>
+    <div className={css.container}>
       <h2>Cast</h2>
-      <ul className={styles.castList}>
+      <ul className={css.castList}>
         {cast.map((actor) => (
-          <li key={actor.id} className={styles.castItem}>
+          <li key={actor.id} className={css.castItem}>
             <img
               src={
                 actor.profile_path
@@ -33,7 +33,7 @@ function MovieCast() {
                   : "https://via.placeholder.com/200x300?text=No+Image"
               }
               alt={actor.name}
-              className={styles.actorImage}
+              className={css.actorImage}
             />
             <p>{actor.name}</p>
             <p>Character: {actor.character}</p>

@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
-import styles from "./Navigation.module.css";
+import css from "./Navigation.module.css";
 import clsx from "clsx";
 
 const generateActiveClass = ({ isActive }) => {
-  return clsx(styles.link, isActive && styles.isActive);
+  return clsx(css.link, isActive && css.isActive);
 };
 
 function Navigation() {
   return (
-    <nav className={styles.nav}>
+    <nav className={css.nav}>
       <NavLink to="/" className={generateActiveClass}>
         Home
       </NavLink>
