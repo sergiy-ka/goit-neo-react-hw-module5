@@ -59,21 +59,27 @@ const MovieDetailsPage = () => {
           />
         </div>
         <div className={css.containerInfo}>
-          <h1>
-            {movie.title}
-            {movie.release_date
-              ? ` (${new Date(movie.release_date).getFullYear()})`
-              : ""}
-          </h1>
-          <p>User Score: {(movie.vote_average * 10).toFixed(2)}%</p>
-          <h2>Overview</h2>
-          <p>{movie.overview}</p>
-          <h3>Genres</h3>
-          <ul>
-            {movie.genres.map((genre) => (
-              <li key={genre.id}>{genre.name}</li>
-            ))}
-          </ul>
+          <div className={css.containerTitle}>
+            <h1>
+              {movie.title}
+              {movie.release_date
+                ? ` (${new Date(movie.release_date).getFullYear()})`
+                : ""}
+            </h1>
+            <p>User Score: {(movie.vote_average * 10).toFixed(2)}%</p>
+          </div>
+          <div className={css.containerOverview}>
+            <h2>Overview</h2>
+            <p>{movie.overview}</p>
+          </div>
+          <div className={css.containerGenres}>
+            <h3>Genres</h3>
+            <ul>
+              {movie.genres.map((genre) => (
+                <li key={genre.id}>{genre.name}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
       <div className={css.additionalInfo}>

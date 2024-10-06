@@ -5,7 +5,7 @@
 .form {
   display: flex;
   margin-bottom: 1rem;
-  width: 600px;
+  max-width: 500px;
 }
 
 .input {
