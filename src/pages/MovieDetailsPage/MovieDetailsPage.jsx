@@ -7,6 +7,7 @@ function MovieDetailsPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
+  const backLinkHref = location.state?.from ?? "/";
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -25,7 +26,7 @@ function MovieDetailsPage() {
 
   return (
     <div className={styles.container}>
-      <Link to={location.state?.from || "/movies"} className={styles.backLink}>
+      <Link to={backLinkHref} className={styles.backLink}>
         Go back
       </Link>
       <div className={styles.containerMovie}>
@@ -54,16 +55,12 @@ function MovieDetailsPage() {
       </div>
       <div className={styles.additionalInfo}>
         <h4>Additional information</h4>
-        <Link
-          to="cast"
-          state={{ from: location.state?.from || "/movies" }}
-          className={styles.link}
-        >
+        <Link to="cast" state={{ from: backLinkHref }} className={styles.link}>
           Cast
         </Link>
         <Link
           to="reviews"
-          state={{ from: location.state?.from || "/movies" }}
+          state={{ from: backLinkHref }}
           className={styles.link}
         >
           Reviews
