@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { searchMovies } from "../../api/movies-api";
 import MovieList from "../../components/MovieList/MovieList";
 import styles from "./MoviesPage.module.css";
 
 function MoviesPage() {
-  const [query, setQuery] = useState("");
-  const [movies, setMovies] = useState([]);
+  const location = useLocation();
+  const [query, setQuery] = useState(location.state?.query || "");
+  const [movies, setMovies] = useState(location.state?.movies || []);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -16,6 +18,13 @@ function MoviesPage() {
       console.error("Error searching movies:", error);
     }
   };
+
+  useEffect(() => {
+    console.log("location.state?.movies", location.state?.movies);
+    if (location.state?.movies) {
+      setMovies(location.state.movies);
+    }
+  }, [location.state?.movies]);
 
   return (
     <div className={styles.container}>
@@ -32,7 +41,7 @@ function MoviesPage() {
           Search
         </button>
       </form>
-      <MovieList movies={movies} />
+      <MovieList movies={movies} query={query} />
     </div>
   );
 }

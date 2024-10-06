@@ -8,6 +8,8 @@ function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
   const location = useLocation();
   const backLinkHref = location.state?.from ?? "/";
+  const previousMovies = location.state?.movies || [];
+  const previousQuery = location.state?.query || "";
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -26,13 +28,21 @@ function MovieDetailsPage() {
 
   return (
     <div className={styles.container}>
-      <Link to={backLinkHref} className={styles.backLink}>
+      <Link
+        to={backLinkHref}
+        state={{ movies: previousMovies, query: previousQuery }}
+        className={styles.backLink}
+      >
         Go back
       </Link>
       <div className={styles.containerMovie}>
         <div className={styles.containerImg}>
           <img
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            src={
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                : "https://via.placeholder.com/500x750?text=No+Image"
+            }
             alt={movie.title}
             className={styles.poster}
           />
@@ -55,12 +65,24 @@ function MovieDetailsPage() {
       </div>
       <div className={styles.additionalInfo}>
         <h4>Additional information</h4>
-        <Link to="cast" state={{ from: backLinkHref }} className={styles.link}>
+        <Link
+          to="cast"
+          state={{
+            from: backLinkHref,
+            movies: previousMovies,
+            query: previousQuery,
+          }}
+          className={styles.link}
+        >
           Cast
         </Link>
         <Link
           to="reviews"
-          state={{ from: backLinkHref }}
+          state={{
+            from: backLinkHref,
+            movies: previousMovies,
+            query: previousQuery,
+          }}
           className={styles.link}
         >
           Reviews
