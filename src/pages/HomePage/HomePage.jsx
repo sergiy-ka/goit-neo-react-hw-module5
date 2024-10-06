@@ -3,7 +3,7 @@ import { trendingMovies } from "../../api/movies-api";
 import MovieList from "../../components/MovieList/MovieList";
 import css from "./HomePage.module.css";
 
-function HomePage() {
+const HomePage = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -25,6 +25,6 @@ function HomePage() {
       <MovieList movies={movies} />
     </div>
   );
-}
+};
 
 export default HomePage;

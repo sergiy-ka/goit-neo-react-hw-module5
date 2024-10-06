@@ -46,12 +46,17 @@
 .isActive {
   color: #004a9a;
   font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: #004a9a;
+  text-decoration-thickness: 2px;
 }
 
 .link:hover {
   text-decoration: underline;
   text-decoration-color: #004a9a;
   text-decoration-thickness: 2px;
+  transition: color 0.3s, text-decoration-color 0.3s,
+    text-decoration-thickness 0.3s;
 }
 
 .containerMovie {

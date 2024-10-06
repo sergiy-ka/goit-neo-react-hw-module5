@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import css from "./MovieList.module.css";
 
-function MovieList({ movies, query }) {
+const MovieList = ({ movies, query }) => {
   const currentPath = window.location.pathname;
 
   return (
@@ -23,6 +23,6 @@ function MovieList({ movies, query }) {
       ))}
     </ul>
   );
-}
+};
 
 export default MovieList;

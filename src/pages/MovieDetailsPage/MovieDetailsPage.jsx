@@ -14,7 +14,7 @@ const generateActiveClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.isActive);
 };
 
-function MovieDetailsPage() {
+const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
@@ -106,6 +106,6 @@ function MovieDetailsPage() {
       <Outlet />
     </div>
   );
-}
+};
 
 export default MovieDetailsPage;

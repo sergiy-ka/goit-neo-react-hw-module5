@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { movieCredits } from "../../api/movies-api";
 import css from "./MovieCast.module.css";
 
-function MovieCast() {
+const MovieCast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
 
@@ -41,6 +41,6 @@ function MovieCast() {
       </ul>
     </div>
   );
-}
+};
 
 export default MovieCast;

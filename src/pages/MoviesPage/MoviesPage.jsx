@@ -4,7 +4,7 @@ import { searchMovies } from "../../api/movies-api";
 import MovieList from "../../components/MovieList/MovieList";
 import css from "./MoviesPage.module.css";
 
-function MoviesPage() {
+const MoviesPage = () => {
   const location = useLocation();
   const [query, setQuery] = useState(location.state?.query || "");
   const [movies, setMovies] = useState(location.state?.movies || []);
@@ -42,6 +42,6 @@ function MoviesPage() {
       <MovieList movies={movies} query={query} />
     </div>
   );
-}
+};
 
 export default MoviesPage;

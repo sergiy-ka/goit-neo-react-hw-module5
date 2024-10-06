@@ -14,7 +14,7 @@ const MovieReviews = lazy(() =>
 );
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
-function App() {
+const App = () => {
   return (
     <div className={css.appContainer}>
       <Navigation />
@@ -31,6 +31,6 @@ function App() {
       </Suspense>
     </div>
   );
-}
+};
 
 export default App;
