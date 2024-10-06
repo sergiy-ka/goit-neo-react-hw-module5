@@ -1,3 +1,9 @@
 .container {
   padding: 1rem;
 }
+
+.fetchingError {
+  color: red;
+  font-size: 16px;
+  padding: 6px;
+}

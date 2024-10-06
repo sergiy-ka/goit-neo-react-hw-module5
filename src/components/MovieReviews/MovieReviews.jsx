@@ -12,8 +12,8 @@ function MovieReviews() {
       try {
         const data = await movieReviews(movieId);
         setReviews(data.results);
-      } catch (error) {
-        console.error("Error fetching movie reviews:", error);
+      } catch {
+        // console.error("Error fetching movie reviews!");
       }
     };
 

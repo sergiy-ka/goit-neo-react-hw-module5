@@ -14,13 +14,12 @@ function MoviesPage() {
     try {
       const data = await searchMovies(query);
       setMovies(data.results);
-    } catch (error) {
-      console.error("Error searching movies:", error);
+    } catch {
+      // console.error("Error searching movies!");
     }
   };
 
   useEffect(() => {
-    console.log("location.state?.movies", location.state?.movies);
     if (location.state?.movies) {
       setMovies(location.state.movies);
     }

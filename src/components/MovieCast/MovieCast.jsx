@@ -12,8 +12,8 @@ function MovieCast() {
       try {
         const data = await movieCredits(movieId);
         setCast(data.cast);
-      } catch (error) {
-        console.error("Error fetching movie cast:", error);
+      } catch {
+        // console.error("Error fetching movie cast!");
       }
     };
 

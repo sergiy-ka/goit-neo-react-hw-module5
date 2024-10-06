@@ -14,10 +14,8 @@
   color: #767676;
   border: 1px solid #d2d2d2;
   border-radius: 4px;
-  /* background-color: #ffffff; */
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-  /* width: auto; */
   align-self: flex-start;
   font-size: 14px;
 }
@@ -33,7 +31,6 @@
 }
 
 .additionalInfo {
-  /* margin-top: 1rem; */
   border-bottom: 1px solid #dee2e6;
   border-top: 1px solid #dee2e6;
   padding: 8px 0;
@@ -42,7 +39,6 @@
 }
 
 .link {
-  /* margin-right: 1rem; */
   text-decoration: none;
   color: #007bff;
 }
@@ -55,7 +51,7 @@
 .link:hover {
   text-decoration: underline;
   text-decoration-color: #004a9a;
-  text-decoration-thickness: 2px; /* This makes the underline thicker */
+  text-decoration-thickness: 2px;
 }
 
 .containerMovie {
@@ -87,4 +83,10 @@
   display: flex;
   flex-direction: column;
   margin-top: 6px;
+}
+
+.fetchingError {
+  color: red;
+  font-size: 16px;
+  padding: 6px;
 }

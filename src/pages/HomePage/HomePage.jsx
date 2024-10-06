@@ -11,8 +11,8 @@ function HomePage() {
       try {
         const data = await trendingMovies();
         setMovies(data.results);
-      } catch (error) {
-        console.error("Error fetching trending movies:", error);
+      } catch {
+        // console.error("Error fetching trending movies!");
       }
     };
 
