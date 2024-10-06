@@ -21,7 +21,7 @@ function HomePage() {
 
   return (
     <div className={styles.container}>
-      <h1>Trending Movies</h1>
+      <h1>Trending today</h1>
       <MovieList movies={movies} />
     </div>
   );

@@ -1,6 +1,6 @@
 .nav {
   display: flex;
-  justify-content: space-around;
+  gap: 24px;
   padding: 1rem;
   background-color: #f0f0f0;
 }
@@ -11,6 +11,10 @@
   font-weight: bold;
 }
 
-.link:hover {
+/* .link:hover {
+  color: #007bff;
+} */
+
+.isActive {
   color: #007bff;
 }
