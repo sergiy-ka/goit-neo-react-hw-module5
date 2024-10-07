@@ -1,19 +1,43 @@
 import css from "./MoviesPage.module.css";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { searchMovies } from "../../api/movies-api";
 import MovieList from "../../components/MovieList/MovieList";
 import toast, { Toaster } from "react-hot-toast";
 
 const MoviesPage = () => {
-  const location = useLocation();
-  const [query, setQuery] = useState(location.state?.query || "");
-  const [movies, setMovies] = useState(location.state?.movies || []);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("query") || "";
+  const [movies, setMovies] = useState([]);
 
-  const handleSearch = async (e) => {
+  useEffect(() => {
+    if (query) {
+      fetchMovies(query);
+    }
+  }, [query]);
+
+  const fetchMovies = async (searchQuery) => {
+    try {
+      const data = await searchMovies(searchQuery);
+      setMovies(data.results);
+    } catch {
+      // console.error("Error searching movies:");
+      toast.error("An error occurred while searching for movies.", {
+        duration: 2500,
+        position: "top-center",
+        style: {
+          background: "#ffcccb",
+        },
+      });
+    }
+  };
+
+  const handleSearch = (e) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const searchQuery = form.elements.searchQuery.value.trim();
 
-    if (query.trim() === "") {
+    if (searchQuery === "") {
       toast.error("Please enter a search query!", {
         duration: 2500,
         position: "top-center",
@@ -21,32 +45,22 @@ const MoviesPage = () => {
           background: "#ffcccb",
         },
       });
-      setQuery("");
+      setSearchParams({});
       setMovies([]);
+      searchParams.delete("query");
       return;
     }
 
-    try {
-      const data = await searchMovies(query);
-      setMovies(data.results);
-    } catch {
-      // console.error("Error searching movies!");
-    }
+    setSearchParams({ query: searchQuery });
   };
-
-  useEffect(() => {
-    if (location.state?.movies) {
-      setMovies(location.state.movies);
-    }
-  }, [location.state?.movies]);
 
   return (
     <div className={css.container}>
       <form onSubmit={handleSearch} className={css.form}>
         <input
           type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          name="searchQuery"
+          defaultValue={query}
           className={css.input}
           placeholder="Enter movie title"
         />
@@ -54,7 +68,7 @@ const MoviesPage = () => {
           Search
         </button>
       </form>
-      <MovieList movies={movies} query={query} />
+      <MovieList movies={movies} />
       <Toaster />
     </div>
   );

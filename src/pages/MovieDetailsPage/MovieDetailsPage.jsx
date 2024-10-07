@@ -9,6 +9,7 @@ import {
 import { movieDetails } from "../../api/movies-api";
 import css from "./MovieDetailsPage.module.css";
 import clsx from "clsx";
+import toast, { Toaster } from "react-hot-toast";
 
 const generateActiveClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.isActive);
@@ -29,6 +30,13 @@ const MovieDetailsPage = () => {
         setMovie(data);
       } catch {
         // console.error("Error fetching movie details!");
+        toast.error("An error occurred while fetching for movie details.", {
+          duration: 2500,
+          position: "top-center",
+          style: {
+            background: "#ffcccb",
+          },
+        });
       }
     };
 
@@ -110,6 +118,7 @@ const MovieDetailsPage = () => {
         </div>
       </div>
       <Outlet />
+      <Toaster />
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { movieReviews } from "../../api/movies-api";
 import css from "./MovieReviews.module.css";
+import toast, { Toaster } from "react-hot-toast";
 
 const MovieReviews = () => {
   const { movieId } = useParams();
@@ -14,6 +15,13 @@ const MovieReviews = () => {
         setReviews(data.results);
       } catch {
         // console.error("Error fetching movie reviews!");
+        toast.error("An error occurred while fetching for movie reviews.", {
+          duration: 2500,
+          position: "top-center",
+          style: {
+            background: "#ffcccb",
+          },
+        });
       }
     };
 
@@ -34,6 +42,7 @@ const MovieReviews = () => {
       ) : (
         <p>No reviews available for this movie.</p>
       )}
+      <Toaster />
     </div>
   );
 };

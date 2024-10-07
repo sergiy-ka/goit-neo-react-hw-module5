@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { movieCredits } from "../../api/movies-api";
 import css from "./MovieCast.module.css";
+import toast, { Toaster } from "react-hot-toast";
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -14,6 +15,13 @@ const MovieCast = () => {
         setCast(data.cast);
       } catch {
         // console.error("Error fetching movie cast!");
+        toast.error("An error occurred while fetching for movie cast.", {
+          duration: 2500,
+          position: "top-center",
+          style: {
+            background: "#ffcccb",
+          },
+        });
       }
     };
 
@@ -39,6 +47,7 @@ const MovieCast = () => {
           </li>
         ))}
       </ul>
+      <Toaster />
     </div>
   );
 };
